@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{# polling/templates/polling/list.html #}
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Django Blog</title>
+</head>
+<body>
+
+{% block content %}
+<table width="90%" border="0">
+    <tr>
+        <td><h1>Recent Posts</h1></td>
+        <td style="text-align: right; vertical-align: middle;"><a href="/polling/">List of Polls</a></td>
+    </tr>
+</table>
+
+
+{% for post in post_list %}
+    <div class="post">
+        <h2>
+            <a href="{% url 'post_detail' post.pk %}">{{ post }}</a>
+        </h2>
+        <p class="byline">
+        <h5>Posted by {{ post.author }} - {{post.created_date}}</h5>
+        </p>
+        <div class="post-body">
+
+        <h5>{{ post.text }}</h5>
+        </div>
+
+        <ul class="categories">
+        {% for category in post.categories.all %}
+        <li >{{ category }}</li><br>
+        {% endfor %}
+        </ul>
+
+    </div>
+
+{% endfor %}
+{% endblock %}
+
+
+</body>
+</html>

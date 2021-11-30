@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{# polling/templates/polling/list.html #}
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block content %}
+
+<table width="90%" border="0">
+    <tr>
+        <td><h1>Polls</h1></td>
+        <td style="text-align: right; vertical-align: middle;"><a href="/">Recent Posts</a></td>
+    </tr>
+</table>
+
+
+{% for poll in poll_list %}
+    <div class="poll">
+        <h2>
+            <a href="{% url 'poll_detail' poll.pk %}">{{ poll.title }}</a>
+        </h2>
+    </div>
+{% endfor %}
+
+
+
+
+{% endblock %}
+
+</body>
+</html>

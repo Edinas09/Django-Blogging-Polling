@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{# polling/templates/polling/detail.html #}
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+{% block content %}
+<a href="/polling/">List of Polls</a>
+<h1>{{ poll.title }}</h1>
+<div class="poll-body">
+    {{ poll.text }}
+</div>
+<div class="poll-score">
+    Current score: {{ poll.score }}
+</div>
+<div class="poll-vote">
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" name="vote" value="Yes">
+        <input type="submit" name="vote" value="No">
+    </form>
+</div>
+{% endblock %}
+
+
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{# blogging/templates/blogging/detail.html #}
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+
+
+{% block content %}
+<a href="/">Home</a>
+<h1>{{ object.title }}</h1>
+<div class="post-body">
+
+        <h5>Posted by {{ object.author }} - {{object.created_date}}</h5>
+        <h5>{{ object.text }}</h5>
+
+</div>
+
+<ul class="categories">
+    {% for category in object.categories.all %}
+    <li>{{ category }}</li><br>
+    {% endfor %}
+
+</ul>
+
+
+{% endblock %}
+
+
+</body>
+</html>
+
