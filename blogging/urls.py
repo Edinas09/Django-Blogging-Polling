@@ -1,14 +1,14 @@
 # blogging/urls.py
 
 from django.urls import path
-from blogging.views import BlogListView, BlogDetailView,  stub_view
+from blogging.views import BlogListView, BlogDetailView, stub_view
 
 
 # from blogging.views import stub_view
 
 urlpatterns = [
-    path('', BlogListView.as_view(), name="post_index"),
-    path('posts/<int:pk>/', BlogDetailView.as_view(), name="post_detail"),
+    path("", BlogListView.as_view(), name="post_index"),
+    path("posts/<int:pk>/", BlogDetailView.as_view(), name="post_detail"),
 ]
 
 # urlpatterns = [

@@ -20,19 +20,20 @@ from django.views.generic.detail import DetailView
 #     context = {'polls': Poll.objects.all()}
 #     return render(request, 'polling/list.html', context)
 
+
 class PoolListView(ListView):
     model = Poll
-    template_name = 'polling/List.html'
+    template_name = "polling/List.html"
+
 
 class PoolDetailView(DetailView):
     model = Poll
-    template_name = 'polling/detail.html'
+    template_name = "polling/detail.html"
 
     def get(self, request, *args, **kwargs):
         poll = self.get_object()
-        context = {'polli': poll, 'object': poll}
+        context = {"polli": poll, "object": poll}
         return render(request, "polling/detail.html", context)
-
 
     def post(self, request, *args, **kwargs):
         poll = self.get_object()
@@ -44,9 +45,8 @@ class PoolDetailView(DetailView):
 
         poll.save()
 
-        context = {'polli': poll, 'object': poll}
+        context = {"polli": poll, "object": poll}
         return render(request, "polling/detail.html", context)
-
 
 
 # def detail_view(request, poll_id):

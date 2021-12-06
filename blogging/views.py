@@ -26,9 +26,12 @@ def stub_view(request, *args, **kwargs):
 #     context = {'posts': posts}
 #     return render(request, 'list.html', context)
 
+
 class BlogListView(ListView):
-    queryset = Post.objects.exclude(published_date__exact=None).order_by('-published_date')
-    template_name = 'blogging/list.html'
+    queryset = Post.objects.exclude(published_date__exact=None).order_by(
+        "-published_date"
+    )
+    template_name = "blogging/list.html"
     # model = Post
     # template_name = 'blogging/list.html'
     # def get_context_data(self, **kwargs):
@@ -39,9 +42,10 @@ class BlogListView(ListView):
     #     context['posts'] = published.order_by('-published_date')
     #     return context
 
+
 class BlogDetailView(DetailView):
     queryset = Post.objects.exclude(published_date__exact=None)
-    template_name = 'blogging/detail.html'
+    template_name = "blogging/detail.html"
     # model = Post
     # template_name = 'blogging/detail.html'
     #
@@ -49,7 +53,6 @@ class BlogDetailView(DetailView):
     #     post = self.get_object()
     #     context = {'object': post}
     #     return render(request, "blogging/detail.html", context)
-
 
 
 # def detail_view(request, post_id):
@@ -60,5 +63,3 @@ class BlogDetailView(DetailView):
 #         raise Http404
 #     context = {'post': post}
 #     return render(request, 'blogging/detail.html', context)
-
-
